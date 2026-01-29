@@ -1,0 +1,17 @@
+# ComfyUI Client Dependencies
+
+# Core dependencies (required)
+websocket-client>=1.6.0
+
+# Image processing (optional, for create_masked_image)
+Pillow>=10.0.0
+numpy>=1.26.0
+
+# Development dependencies (optional)
+# pip install -e ".[dev]"
+# pytest>=8.0.0
+# pytest-asyncio>=0.23.0
+# black>=24.0.0
+# isort>=5.13.0
+# mypy>=1.8.0
+# ruff>=0.2.0

@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ComfyUI-PyClient"
+version = "0.1.3"
+description = "A Python client library for interacting with ComfyUI API"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.12"
+authors = [
+    {name = "ComfyUI Client Contributors"}
+]
+keywords = [
+    "comfyui",
+    "stable-diffusion",
+    "image-generation",
+    "ai",
+    "api-client",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+dependencies = [
+    "websocket-client>=1.6.0",
+]
+
+[project.optional-dependencies]
+image = [
+    "Pillow>=10.0.0",
+    "numpy>=1.26.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "black>=24.0.0",
+    "isort>=5.13.0",
+    "mypy>=1.8.0",
+    "ruff>=0.2.0",
+]
+all = [
+    "ComfyUI-PyClient[image,dev]",
+]
+
+[project.urls]
+Homepage = "https://github.com/10e9928a/ComfyUI-PyClient"
+Documentation = "https://github.com/10e9928a/ComfyUI-PyClient#readme"
+Repository = "https://github.com/10e9928a/ComfyUI-PyClient"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["comfyui_client*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+strict = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
